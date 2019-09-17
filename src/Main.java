@@ -14,6 +14,7 @@ public class Main {
             System.out.println("请输入功能：\n1 Base64加解密\n2 JSON及字典反转\n3 二维码制作\n请输入：");
             ins = scanner.nextInt();
         }catch (Exception e){
+            System.out.println("你输的啥玩意？");
             System.exit(-1);
         }
 
