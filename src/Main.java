@@ -5,14 +5,17 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        int ins;
+        int ins=0;
         String input;
-        Scanner scanner;
+        Scanner scanner=new Scanner(System.in);;
         JSONMode jsonMode;
 
-        System.out.println("请输入功能：\n1 Base64加解密\n2 JSON及字典反转\n3 二维码制作\n请输入：");
-        scanner=new Scanner(System.in);
-        ins=scanner.nextInt();
+        try {
+            System.out.println("请输入功能：\n1 Base64加解密\n2 JSON及字典反转\n3 二维码制作\n请输入：");
+            ins = scanner.nextInt();
+        }catch (Exception e){
+            System.exit(-1);
+        }
 
         switch (ins){
             case 1:
@@ -36,7 +39,7 @@ public class Main {
                 //Add item;
                 int i=0;
                 do{
-                    System.out.println("请输入键值：");
+                    System.out.println("请输入键值：（输入OUT结束）");
                     input = scanner.next();
                     if(input.equals("OUT"))break;
                     jsonMode.addItem(input,i);
@@ -63,6 +66,9 @@ public class Main {
                     e.printStackTrace();
                     System.out.println("获取二维码失败");
                 }
+                break;
+            default:
+                System.out.println("你输的啥玩意？");
                 break;
         }
     }
