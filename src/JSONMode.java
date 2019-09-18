@@ -5,9 +5,8 @@ import com.google.gson.Gson;
 public class JSONMode {
     private HashMap<String,String> map=new HashMap<String,String>();
     private HashMap<String,Object> map_Convert=new HashMap<String, Object>();
-    char key='a';
-    public void addItem(String str,int index){
-        map.put(String.valueOf((char)(key+index)),str);
+    public void addItem(String key,String value){
+        map.put(key,value);
     }
 
     public String mapToJson(HashMap map){

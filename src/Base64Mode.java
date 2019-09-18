@@ -1,6 +1,8 @@
 import java.util.Base64;
 import java.util.Base64.Encoder;
 import java.util.Base64.Decoder;
+import java.util.regex.Pattern;
+
 public class Base64Mode {
 
     public static String Encrypt(String str){
@@ -10,17 +12,15 @@ public class Base64Mode {
     }
 
     public static String Decrypt(String str) throws Exception{
-        char[] chars=str.toCharArray();
         //Check is valid
-        for(int i=0;i<chars.length;i++){
-            for(int j=i+1;j<chars.length;j++){
-                if(chars[i]==chars[j]){
-                    throw new Exception();
-                }
-            }
-        }
+        if(!isBase64(str))throw new Exception();
         Decoder decoder=Base64.getDecoder();
         byte[] bytes=decoder.decode(str.getBytes());
         return new String(bytes);
+    }
+
+    public static boolean isBase64(String str){
+        String regex="^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{4}|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)$";
+        return Pattern.matches(regex,str);
     }
 }
