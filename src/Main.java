@@ -9,7 +9,6 @@ public class Main {
         String input;
         Scanner scanner=new Scanner(System.in);;
         JSONMode jsonMode;
-
         try {
             System.out.println("请输入功能：\n1 Base64加解密\n2 JSON及字典反转\n3 二维码制作\n请输入：");
             ins = scanner.nextInt();
