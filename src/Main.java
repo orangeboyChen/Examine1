@@ -110,8 +110,8 @@ public class Main {
 
                 //Convert to PNG
                 try {
-                    QRCodeMode.getQRCode(QRCodeMode.getStrFromTXT(input+"/in.txt"),input+"/in.png");
-                    System.out.println("获取二维码成功!在"+input+"/in.png");
+                    QRCodeMode.getQRCode(QRCodeMode.getStrFromTXT(input+"in.txt"),input+"in.png");
+                    System.out.println("获取二维码成功!在"+input+"in.png");
                 } catch (FileNotFoundException e){
                     System.out.println("系统找不到文件！");
                 } catch (IOException e) {

@@ -21,7 +21,8 @@ public class QRCodeMode {
 
     public static void getQRCode(String str, String paths) throws WriterException,IOException {
         QRCodeWriter qrCodeWriter=new QRCodeWriter();
-        BitMatrix bitMatrix=qrCodeWriter.encode(str, BarcodeFormat.QR_CODE,350,350);
+
+        BitMatrix bitMatrix=qrCodeWriter.encode(new String(str.getBytes("UTF-8"), "ISO-8859-1"), BarcodeFormat.QR_CODE,350,350);
         Path path= FileSystems.getDefault().getPath(paths);
         MatrixToImageWriter.writeToFile(bitMatrix,"png",new File(paths));
         }
